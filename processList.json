@@ -1,0 +1,19 @@
+﻿{
+  "moves": [
+    {
+      "from": "base_dir/test_dir1/test.txt",
+      "to": "base_dir/test_dir2/moved_test.txt"
+    },
+    {
+      "from": "base_dir/test_dir1/child_dir",
+      "to": "base_dir/new_parent_dir/child_dir"
+    }
+  ],
+  "deletes": [
+    "base_dir/test.txt"
+  ],
+  "creates": {
+    "base_dir/new_parent_dir": {},
+    "base_dir/new_file.txt": "文件内容"
+  }
+}

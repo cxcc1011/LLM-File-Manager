@@ -1,0 +1,35 @@
+﻿{
+    "base_dir": {
+    "__operation__": null,
+    "test_dir1": {
+      "__operation__": null,
+      "child_dir": {
+        "__operation__": "move:base_dir/test_dir1/child_dir"
+      },
+      "test.txt": {
+        "__operation__": "move:base_dir/test_dir1/test.txt",
+        "__content__": ""
+      }
+    },
+    "test_dir2": {
+      "__operation__": null,
+      "test.txt": {
+        "__operation__": null,
+        "__content__": ""
+      }
+    },
+    "new_parent_dir": {
+      "__operation__": "create:",
+      "child_dir": {
+        "__operation__": "move:base_dir/test_dir1/child_dir"
+      }
+    },
+    "new_file.txt": {
+      "__operation__": "create:",
+      "__content__": "新文件内容"
+    },
+    "old_file.txt": {
+      "__operation__": "delete:base_dir/old_file.txt"
+    }
+  }
+}

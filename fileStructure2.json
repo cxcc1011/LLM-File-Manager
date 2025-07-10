@@ -1,0 +1,16 @@
+{
+  "base_dir": {
+    "test_dir1": {
+      "child_dir": {},
+      "test.txt": ""
+    },
+    "test_dir2": {
+      "test.txt": ""
+    },
+    "new_parent_dir": {
+      "child_dir": {}
+    },
+    "new_file.txt": "",
+    "old_file.txt": {}
+  }
+}
