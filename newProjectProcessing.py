@@ -3,6 +3,7 @@ import json
 import basicFunction
 import fileUtils
 
+
 def creat_dir_from_json(json_path):
     try:
         with open(json_path, 'r', encoding='utf-8-sig') as f:

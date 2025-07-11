@@ -7,7 +7,7 @@ from pathlib import Path
 from datetime import datetime
 
 # 主要变更操作的根目录
-base_dir = os.path.dirname(os.path.abspath(__file__)) + '\\base_dir'
+base_dir = os.path.dirname(os.path.abspath(__file__))
 
 # 当前选取的根目录
 json_file_old = 'fileStructure2.json'

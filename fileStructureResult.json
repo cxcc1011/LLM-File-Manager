@@ -3,11 +3,8 @@
     "__operation__": null,
     "test_dir1": {
       "__operation__": null,
-      "child_dir": {
-        "__operation__": "move:base_dir/test_dir1/child_dir"
-      },
       "test.txt": {
-        "__operation__": "move:base_dir/test_dir1/test.txt",
+        "__operation__": null,
         "__content__": ""
       }
     },
@@ -22,14 +19,11 @@
       "__operation__": "create:",
       "child_dir": {
         "__operation__": "move:base_dir/test_dir1/child_dir"
+      },
+      "test.txt": {
+        "__operation__": "move:base_dir/test.txt",
+        "__content__": ""
       }
-    },
-    "new_file.txt": {
-      "__operation__": "create:",
-      "__content__": "新文件内容"
-    },
-    "old_file.txt": {
-      "__operation__": "delete:base_dir/old_file.txt"
     }
   }
 }

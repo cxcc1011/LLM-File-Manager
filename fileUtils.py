@@ -1,4 +1,5 @@
 import os
+import re
 import sys
 import json
 
@@ -62,6 +63,12 @@ def save_content(content, path):
     except Exception as e:
         print(f"保存失败：{e}")
         sys.exit(1)
+
+def is_file(path):
+    """判断路径是否指向文件（通过扩展名或路径特征）"""
+    # 检查是否有扩展名（例如 .txt, .jpg 等）
+    file_ext_pattern = r'\.[a-zA-Z0-9]{1,10}$'
+    return bool(re.search(file_ext_pattern, path))
 
 if __name__ == '__main__':
 
