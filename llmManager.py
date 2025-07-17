@@ -4,7 +4,8 @@ from openai import OpenAI
 import fileUtils
 
 api_key = 'sk-2e114b19f0694b739d81363ba728d596'
-json_file = 'fileStructure2.json'
+json_path = 'fileStructure2.json'
+json_path_result = 'fileStructureResult.json'
 
 # Please install OpenAI SDK first: `pip3 install openai`
 
@@ -79,7 +80,7 @@ def creating_mode_invoke(user_input):
     # 解析响应并保存到文件
     result = json.loads(response.choices[0].message.content)
 
-    fileUtils.save_content(result, json_file)
+    fileUtils.save_content(result, json_path)
 
     messages.append(response.choices[0].message)
 
@@ -104,12 +105,42 @@ def creating_mode_iterate(user_input,messages):
     # 解析响应并保存到文件
     result = json.loads(response.choices[0].message.content)
 
-    fileUtils.save_content(result, json_file)
+    fileUtils.save_content(result, json_path)
 
     messages.append(response.choices[0].message)
 
     return messages
 
+def organizing_mode_invoke(user_input):
+    client = OpenAI(api_key=api_key, base_url="https://api.deepseek.com")
+
+    system_prompt = """
+    You are a professional file system organizer.
+    
+    The user will provide 
+    """
+
+    user_prompt = user_input
+
+    messages = [{"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt}]
+
+    response = client.chat.completions.create(
+        model="deepseek-chat",
+        messages=messages,
+        response_format={
+            'type': 'json_object'
+        }
+    )
+
+    # 解析响应并保存到文件
+    result = json.loads(response.choices[0].message.content)
+
+    fileUtils.save_content(result, json_path_result)
+
+    messages.append(response.choices[0].message)
+
+    return messages
 
 if __name__ == '__main__':
     # invoke_test()

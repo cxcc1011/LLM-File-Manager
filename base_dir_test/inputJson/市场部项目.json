@@ -1,0 +1,30 @@
+﻿{
+  "市场部项目": {
+    "__operation__": null,
+    "Q3活动策划": {
+      "__operation__": null,
+      "活动流程.docx": {
+        "__operation__": "move:市场部项目/临时存放/活动流程.docx",
+        "__content__": ""
+      },
+      "预算表.xlsx": {
+        "__operation__": "move:市场部项目/临时存放/预算表.xlsx",
+        "__content__": ""
+      },
+      "宣传海报.psd": {
+        "__operation__": "move:市场部项目/素材库/宣传海报.psd",
+        "__content__": ""
+      },
+      "活动视频.mp4": {
+        "__operation__": "move:市场部项目/素材库/活动视频.mp4",
+        "__content__": ""
+      }
+    },
+    "临时存放": {
+      "__operation__": null
+    },
+    "素材库": {
+      "__operation__": null
+    }
+  }
+}

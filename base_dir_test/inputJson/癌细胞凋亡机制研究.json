@@ -1,0 +1,40 @@
+﻿{
+  "癌细胞凋亡机制研究": {
+    "__operation__": null,
+    "文献调研": {
+      "__operation__": null,
+      "文献综述.docx": {
+        "__operation__": null,
+        "__content__": ""
+      },
+      "关键文献笔记.pdf": {
+        "__operation__": null,
+        "__content__": ""
+      },
+      "文献引用格式.xlsx": {
+        "__operation__": null,
+        "__content__": ""
+      }
+    },
+    "实验设计方案": {
+      "__operation__": "create:",
+      "__content__": ""
+    },
+    "实验设备调试": {
+      "__operation__": "create:",
+      "__content__": ""
+    },
+    "样本准备流程": {
+      "__operation__": "create:",
+      "__content__": ""
+    },
+    "预实验记录.txt": {
+      "__operation__": null,
+      "__content__": ""
+    },
+    "项目进度表.xlsx": {
+      "__operation__": null,
+      "__content__": ""
+    }
+  }
+}

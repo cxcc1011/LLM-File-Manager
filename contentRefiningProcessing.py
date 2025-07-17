@@ -5,7 +5,7 @@ import basicFunction
 import fileUtils
 from typing import Dict, Any, Optional
 
-base_dir = os.path.dirname(os.path.abspath(__file__))
+base_dir = os.path.dirname(os.path.abspath(__file__))+ "//base_dir"
 json_path_result = 'fileStructureResult.json'
 json_path_new = 'fileStructure2.json'
 json_path_operations = 'processList.json'
@@ -168,7 +168,7 @@ if __name__=="__main__":
     # 内容优化功能测试用例
 
     # 原先的文件夹结构
-    # fileUtils.display_directory_tree(base_dir+"//base_dir")
+    # fileUtils.display_directory_tree(base_dir + "//年度总结")
 
     # # 新变化的json结构
     # fileUtils.save_content(transfer_result_json(json_path_result), json_path_new)
@@ -181,7 +181,7 @@ if __name__=="__main__":
     # execute_operations(json_path_operations)
 
     # 查看变更结果
-    fileUtils.display_directory_tree(base_dir + "//base_dir")
+    fileUtils.display_directory_tree(base_dir + "//年度总结")
 
 
 
