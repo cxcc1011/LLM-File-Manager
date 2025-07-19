@@ -1,49 +1,32 @@
-﻿{
-  "年度总结": {
+{
+  "癌细胞凋亡机制研究": {
     "__operation__": null,
-    "技术部": {
+    "文献调研": {
       "__operation__": null,
-      "文档": {
-        "__operation__": "create:",
-        "工作总结.docx": {
-          "__operation__": "move:年度总结/技术部/工作总结.docx",
-          "__content__": ""
-        }
+      "文献综述.docx": {
+        "__operation__": null,
+        "__content__": ""
       },
-      "数据": {
-        "__operation__": "create:",
-        "数据统计.xlsx": {
-          "__operation__": "move:年度总结/技术部/数据统计.xlsx",
-          "__content__": ""
-        }
+      "关键文献笔记.pdf": {
+        "__operation__": null,
+        "__content__": ""
+      },
+      "文献引用格式.xlsx": {
+        "__operation__": null,
+        "__content__": ""
       }
     },
-    "市场部": {
+    "预实验记录.txt": {
       "__operation__": null,
-      "演示文稿": {
-        "__operation__": "create:",
-        "活动总结.pptx": {
-          "__operation__": "move:年度总结/市场部/活动总结.pptx",
-          "__content__": ""
-        }
-      }
+      "__content__": ""
     },
-    "全公司": {
+    "项目进度表.xlsx": {
+      "__operation__": null,
+      "__content__": ""
+    },
+    "项目代码": {
       "__operation__": "create:",
-      "文档": {
-        "__operation__": "create:",
-        "全公司汇总.docx": {
-          "__operation__": "move:年度总结/全公司汇总.docx",
-          "__content__": ""
-        }
-      },
-      "数据": {
-        "__operation__": "create:",
-        "预算分析.xlsx": {
-          "__operation__": "move:年度总结/预算分析.xlsx",
-          "__content__": ""
-        }
-      }
+      "__content__": ""
     }
   }
 }
