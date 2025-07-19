@@ -92,33 +92,33 @@ def move_dir(from_path, to_path):
         print(f"移动文件夹失败: {e}")
         return False
 
-def read_dir(path):
-    result = {}
-    if not path == "" :
-        path = os.path.join(base_dir, path)
-    else : path = base_dir
-
-    # 递归读取文件夹结构
-    def read(path, result):
-        base_name = os.path.basename(path)
-        if os.path.isfile(path):
-            result[base_name] = ""
-        else:
-            result[base_name] = {}
-            for item in os.listdir(path):
-                item_path = os.path.join(path, item)
-                if os.path.isdir(item_path):
-                    result[base_name].update(read_dir(item_path))
-                else:
-                    result[base_name][item] = ""
-        return result
-
-    try:
-        return read(path, result)
-
-    except Exception as e:
-        print(f"读取文件夹结构失败：{e}")
-        sys.exit(1)
+# def read_dir(path):
+#     result = {}
+#     if not path == "" :
+#         path = os.path.join(base_dir, path)
+#     else : path = base_dir
+#
+#     # 递归读取文件夹结构
+#     def read(path, result):
+#         base_name = os.path.basename(path)
+#         if os.path.isfile(path):
+#             result[base_name] = ""
+#         else:
+#             result[base_name] = {}
+#             for item in os.listdir(path):
+#                 item_path = os.path.join(path, item)
+#                 if os.path.isdir(item_path):
+#                     result[base_name].update(read_dir(item_path))
+#                 else:
+#                     result[base_name][item] = ""
+#         return result
+#
+#     try:
+#         return read(path, result)
+#
+#     except Exception as e:
+#         print(f"读取文件夹结构失败：{e}")
+#         sys.exit(1)
 
 def rename(old_path,new_path):
     try:
@@ -224,12 +224,12 @@ if __name__=="__main__":
     # move_dir(new_dir_name,new_path)
     # move_dir(new_path, new_dir_name)
 
-    fileUtils.save_content(read_dir(dir_name), json_file_old)
-    fileUtils.display_json_tree(json_file_old)
+    # fileUtils.save_content(read_dir(dir_name), json_file_old)
+    # fileUtils.display_json_tree(json_file_old)
 
     # 文件功能测试用例
     # file_name = "test_dir1\\test.txt"
     # file_name_new = "test_dir2\\test"
-    # rename(file_name_new, file_name)
+    rename("年度总结/技术部/文档/工作总结.docx", "年度总结/技术部/文档/技术部工作总结.docx")
     # move_file(file_name, file_name_new)
     # get_file_mata(file_name)

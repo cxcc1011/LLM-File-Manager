@@ -152,10 +152,7 @@ def organizing_mode_invoke(user_input):
         }
       }
     }Among them, __operation__ represents change operations, including three types: create, move, and rename.
-     
      If there is no operation, it is represented by null; __content__ is an attribute unique to files, and it is generally empty.
-    
-    NOTE: JSON standard allows only double quoted string.
     
     EXAMPLE INPUT 1: 
     user description ：市场部 Q3 活动策划的相关文件分散在 “临时存放” 和 “素材库” 文件夹中，导致团队成员查找资料时需切换多个目录，影响工作效率。
@@ -275,7 +272,10 @@ def organizing_mode_invoke(user_input):
       }
     }
     reason：建立清晰的层级结构，方便跨部门查阅和汇总分析，提升年终汇报准备效率。
-
+    
+    NOTE: 1.JSON standard allows only double quoted string.
+    2.Carefully check to ensure consistency in the attributes of folders and files before and after the operation.Guarantee that no existing files are lost.
+    3.folders only have __operation__ and other child nodes and don't exist __content__ attribute！
     """
 
     user_prompt = user_input

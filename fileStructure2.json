@@ -1,34 +1,26 @@
 {
-  "癌细胞凋亡机制研究": {
-    "__operation__": null,
-    "文献调研": {
-      "__operation__": null,
-      "文献综述.docx": {
-        "__operation__": null,
-        "__content__": ""
+  "年度总结": {
+    "全公司": {
+      "数据": {
+        "预算分析.xlsx": ""
       },
-      "关键文献笔记.pdf": {
-        "__operation__": null,
-        "__content__": ""
-      },
-      "文献引用格式.xlsx": {
-        "__operation__": null,
-        "__content__": ""
+      "文档": {
+        "全公司汇总.docx": ""
       }
     },
-    "项目进度表.xlsx": {
-      "__operation__": null,
-      "__content__": ""
-    },
-    "项目代码": {
-      "__operation__": "create:",
-      "实验": {
-        "__operation__": "create:",
-        "预实验记录.txt": {
-          "__operation__": "move:癌细胞凋亡机制研究/预实验记录.txt",
-          "__content__": ""
-        }
+    "市场部": {
+      "演示文稿": {
+        "活动总结.pptx": ""
       }
-    }
+    },
+    "技术部": {
+      "数据": {
+        "数据统计.xlsx": ""
+      },
+      "文档": {
+        "工作总结.docx": ""
+      }
+    },
+    "外交部.txt": ""
   }
 }

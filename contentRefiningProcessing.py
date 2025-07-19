@@ -60,18 +60,18 @@ def generate_operations_from_json(json_path):
             #     operations.append(("create_dir", parent_path))
             operations.append(("move", source_path, new_path))
 
-        # elif op_type == "delete":
+        elif op_type == "rename":
             # print(op_info)
-            # 删除操作：直接记录原路径
-            # operations.append(("delete", source_path))
+            # #删除操作：直接记录原路径
+            operations.append(("rename", source_path, new_path))
 
     # 从根目录开始遍历新结构
     traverse("", new_structure)
 
     result = {
+        "rename": [],
         "create": {},
-        "move": [],
-        "delete": []  # 预留删除操作字段，保持扩展性
+        "move": []
     }
 
     for op in operations:
@@ -88,10 +88,14 @@ def generate_operations_from_json(json_path):
             _, path = op
             # 对于目录，值为空字典；若为文件可后续扩展为内容
             result["create"][path] = {}
-        elif op_type == "delete":
+        elif op_type == "rename":
             # 解析删除操作：(delete, path)
-            _, path = op
-            result["delete"].append(path)
+            # 解析移动操作：(move, from_path, to_path)
+            _, from_path, to_path = op
+            result["rename"].append({
+                "from": from_path,
+                "to": to_path
+            })
 
         # 转换为JSON字符串，确保键的顺序（Python 3.7+字典保留插入顺序）
 
@@ -123,6 +127,13 @@ def execute_operations(json_path):
                 else:
                     basicFunction.move_dir(from_path, to_path)
 
+        if 'rename' in operations:
+            for rename_op in operations['rename']:
+                from_path = rename_op['from']
+                to_path = rename_op['to']
+                # 判断是否为文件（通过扩展名或路径特征）
+                basicFunction.rename(from_path, to_path)
+
         print("所有操作执行完毕")
 
     except Exception as e:
@@ -148,7 +159,8 @@ def transfer_result_json(path):
                 # 处理目录
             if isinstance(item, dict):
                 # 如果包含子项，则递归处理, 检查是否为文件
-                if all(key != '__content__' for key in item.keys()):
+                pattern = r'[^.]\.[^.]+$'
+                if all(key != '__content__' for key in item.keys()) or (not bool(re.search(pattern, name))):
                     # print(f"{name}is file")
                     result[name] = process_directory(item)
                 else:
@@ -178,10 +190,10 @@ if __name__=="__main__":
     # generate_operations_from_json(json_path_result)
 
     # 执行操作序列
-    # execute_operations(json_path_operations)
+    execute_operations(json_path_operations)
 
     # 查看变更结果
-    fileUtils.display_directory_tree(base_dir + "//年度总结")
+    # fileUtils.display_directory_tree(base_dir + "//年度总结")
 
 
 

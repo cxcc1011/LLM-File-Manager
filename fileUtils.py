@@ -3,6 +3,7 @@ import re
 import sys
 import json
 
+base_dir = os.path.dirname(os.path.abspath(__file__)) + "//base_dir"
 json_file = 'fileStructure2.json'
 
 def display_directory_tree(path):
@@ -53,6 +54,32 @@ def display_json_tree(path):
     tree(root_structure)
 
 
+def read_directory(path):
+    """生成目录结构的JSON表示，其中文件夹用{}表示，文件用""表示"""
+    def build_json(dir_path):
+        result = {}
+        # 过滤隐藏文件和文件夹
+        contents = sorted([c for c in os.listdir(dir_path) if not c.startswith('.')])
+        for name in contents:
+            full_path = os.path.join(dir_path, name)
+            if os.path.isdir(full_path):
+                # 递归处理子目录
+                result[name] = build_json(full_path)
+            else:
+                # 文件用空字符串表示
+                result[name] = ""
+        return result
+
+    if os.path.isdir(path):
+        # 获取目录名称作为根节点
+        root_name = os.path.basename(os.path.abspath(path))
+        return {root_name: build_json(path)}
+    else:
+        # 如果是文件，直接返回文件名和空字符串
+        file_name = os.path.basename(path)
+        return {file_name: ""}
+
+
 def save_content(content, path):
     try:
         with open(path, "w", encoding="utf-8") as f:
@@ -75,3 +102,5 @@ if __name__ == '__main__':
     ''' 接口测试专用'''
     # fileUtils.display_directory_tree(base_dir)
     # display_json_tree(json_file)
+    # print(read_directory(base_dir+"//年度总结"))
+    save_content(read_directory(base_dir+"//年度总结"),'fileStructure1.json')

@@ -1,32 +1,52 @@
 {
-  "癌细胞凋亡机制研究": {
+  "年度总结": {
     "__operation__": null,
-    "文献调研": {
+    "全公司": {
       "__operation__": null,
-      "文献综述.docx": {
+      "数据": {
         "__operation__": null,
-        "__content__": ""
+        "预算分析.xlsx": {
+          "__operation__": null,
+          "__content__": ""
+        }
       },
-      "关键文献笔记.pdf": {
+      "文档": {
         "__operation__": null,
-        "__content__": ""
-      },
-      "文献引用格式.xlsx": {
-        "__operation__": null,
-        "__content__": ""
+        "全公司汇总.docx": {
+          "__operation__": null,
+          "__content__": ""
+        }
       }
     },
-    "预实验记录.txt": {
+    "市场部": {
       "__operation__": null,
-      "__content__": ""
+      "演示文稿": {
+        "__operation__": null,
+        "活动总结.pptx": {
+          "__operation__": null,
+          "__content__": ""
+        }
+      }
     },
-    "项目进度表.xlsx": {
+    "技术部": {
       "__operation__": null,
-      "__content__": ""
+      "数据": {
+        "__operation__": null,
+        "数据统计.xlsx": {
+          "__operation__": null,
+          "__content__": ""
+        }
+      },
+      "文档": {
+        "__operation__": null,
+        "技术部工作总结.docx": {
+          "__operation__": "rename:年度总结/技术部/文档/工作总结.docx",
+          "__content__": ""
+        }
+      }
     },
-    "项目代码": {
-      "__operation__": "create:",
-      "__content__": ""
+    "人事部": {
+      "__operation__": null
     }
   }
 }
