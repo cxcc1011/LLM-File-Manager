@@ -179,6 +179,7 @@ def transfer_result_json(path):
 if __name__=="__main__":
     # 内容优化功能测试用例
 
+
     # 原先的文件夹结构
     # fileUtils.display_directory_tree(base_dir + "//年度总结")
 
