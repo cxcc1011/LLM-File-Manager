@@ -1,52 +1,36 @@
 {
-  "年度总结": {
+  "摄影": {
     "__operation__": null,
-    "全公司": {
+    "小狗.jpg": {
       "__operation__": null,
-      "数据": {
-        "__operation__": null,
-        "预算分析.xlsx": {
-          "__operation__": null,
-          "__content__": ""
-        }
+      "__content__": ""
+    },
+    "小猫.jpg": {
+      "__operation__": null,
+      "__content__": ""
+    },
+    "小马.jpg": {
+      "__operation__": null,
+      "__content__": ""
+    },
+    "待删除": {
+      "__operation__": "create:",
+      "小狗.png": {
+        "__operation__": "move:摄影/小狗.png",
+        "__content__": ""
       },
-      "文档": {
-        "__operation__": null,
-        "全公司汇总.docx": {
-          "__operation__": null,
-          "__content__": ""
-        }
-      }
-    },
-    "市场部": {
-      "__operation__": null,
-      "演示文稿": {
-        "__operation__": null,
-        "活动总结.pptx": {
-          "__operation__": null,
-          "__content__": ""
-        }
-      }
-    },
-    "技术部": {
-      "__operation__": null,
-      "数据": {
-        "__operation__": null,
-        "数据统计.xlsx": {
-          "__operation__": null,
-          "__content__": ""
-        }
+      "小猫.psf": {
+        "__operation__": "move:摄影/小猫.psf",
+        "__content__": ""
       },
-      "文档": {
-        "__operation__": null,
-        "技术部工作总结.docx": {
-          "__operation__": "rename:年度总结/技术部/文档/工作总结.docx",
-          "__content__": ""
-        }
+      "小马.png": {
+        "__operation__": "move:摄影/小马.png",
+        "__content__": ""
+      },
+      "小马.psf": {
+        "__operation__": "move:摄影/小马.psf",
+        "__content__": ""
       }
-    },
-    "人事部": {
-      "__operation__": null
     }
   }
 }

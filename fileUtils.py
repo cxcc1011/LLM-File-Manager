@@ -102,5 +102,5 @@ if __name__ == '__main__':
     ''' 接口测试专用'''
     # fileUtils.display_directory_tree(base_dir)
     # display_json_tree(json_file)
-    # print(read_directory(base_dir+"//年度总结"))
-    save_content(read_directory(base_dir+"//年度总结"),'fileStructure1.json')
+    print(read_directory(base_dir+"//course_work"))
+    save_content(read_directory(base_dir+"//course_work"),'fileStructure1.json')

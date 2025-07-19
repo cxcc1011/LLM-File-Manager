@@ -273,6 +273,58 @@ def organizing_mode_invoke(user_input):
     }
     reason：建立清晰的层级结构，方便跨部门查阅和汇总分析，提升年终汇报准备效率。
     
+    EXAMPLE INPUT 3:
+    user description ：某学生整理课程作业项目文件，需将零散命名的文件按规范重命名，方便后续查阅和提交
+    directory structure：
+    {
+      "course_work": {
+        "hw": {
+          "doc1.docx": "",
+          "doc2.docx": "",
+          "img": {
+            "pic1.png": "",
+            "screenshot.jpg": ""
+          }
+        },
+        "readme.md": ""
+      }
+    }
+    
+    EXAMPLE OUTPUT 3: 
+    {
+      "course_work": {
+        "__operation__": null,
+        "hw": {
+          "__operation__": null,
+          "作业1_初稿.docx": {
+            "__operation__": "rename:course_work/hw/doc1.docx",
+            "__content__": ""
+          },
+          "作业1_终稿.docx": {
+            "__operation__": "rename:course_work/hw/doc2.docx",
+            "__content__": ""
+          },
+          "img": {
+            "__operation__": null,
+            "图表1.png": {
+              "__operation__": "rename:course_work/hw/img/pic1.png",
+              "__content__": ""
+            },
+            "screenshot.jpg": {
+              "__operation__": null,
+              "__content__": ""
+            }
+          }
+        },
+        "readme.md": {
+          "__operation__": null,
+          "__content__": ""
+        }
+      }
+    }
+
+
+    
     NOTE: 1.JSON standard allows only double quoted string.
     2.Carefully check to ensure consistency in the attributes of folders and files before and after the operation.Guarantee that no existing files are lost.
     3.folders only have __operation__ and other child nodes and don't exist __content__ attribute！
