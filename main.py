@@ -5,6 +5,7 @@ import contentRefiningProcessing
 import llmManager
 import os
 import json
+from flask import Flask,request,jsonify
 
 base_dir = os.path.dirname(os.path.abspath(__file__)) + "//base_dir"
 json_path_old = 'fileStructure1.json'
@@ -152,7 +153,22 @@ def main():
                     break  # Exit the main loop
         exit()
 
-if __name__ == '__main__':
+app = Flask(__name__)
+@app.route("/structure", methods=["POST"])
+def getStructure():
+    if request.is_json:
+        data = request.get_json()
+        root_path = data.get("root_input")
+        json_result = fileUtils.read_directory(root_path)
+        fileUtils.save_content(json_result, json_path_old)
+        print("接受输入成功")
+        return jsonify(json_result), 200
+    else:
+        print("处理失败")
+        return jsonify({'error': 'Request content is not JSON'}), 400
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000,debug=True)
 
     ''' 接口测试专用'''
     # fileUtils.display_directory_tree(base_dir)
@@ -166,7 +182,7 @@ if __name__ == '__main__':
     # dir_to_delete = 'student_admission_project_2025'
     # basicFunction.delete_dir(dir_to_delete)
 
-    main()
+    # main()
 
 
 

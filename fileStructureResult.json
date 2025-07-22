@@ -1,65 +1,46 @@
 {
-  "癌细胞研究": {
-    "__operation__": null,
-    "文献调研": {
-      "__operation__": null,
-      "关键文献笔记.pdf": {
-        "__operation__": null,
-        "__content__": ""
-      },
-      "文献引用格式.xlsx": {
-        "__operation__": null,
-        "__content__": ""
-      },
-      "文献综述.docx": {
-        "__operation__": null,
-        "__content__": ""
+  "course_work": {
+    "作业": {
+      "作业1.docx": "",
+      "作业2.docx": "",
+      "图片": {
+        "图片1.png": "",
+        "截图.jpg": ""
       }
     },
-    "实验方案设计": {
-      "__operation__": "create:",
-      "方案草稿": {
-        "__operation__": "create:",
-        "__content__": ""
-      },
-      "设备清单": {
-        "__operation__": "create:",
-        "__content__": ""
-      },
-      "时间安排": {
-        "__operation__": "create:",
-        "__content__": ""
-      }
+    "readme.md": ""
+  },
+  "operationList": [
+    {
+      "operation": "rename",
+      "from": "course_work/hw/doc1.docx",
+      "to": "course_work/hw/作业1.docx"
     },
-    "设备调试": {
-      "__operation__": "create:",
-      "调试记录": {
-        "__operation__": "create:",
-        "__content__": ""
-      },
-      "问题与解决": {
-        "__operation__": "create:",
-        "__content__": ""
-      }
+    {
+      "operation": "rename",
+      "from": "course_work/hw/doc2.docx",
+      "to": "course_work/hw/作业2.docx"
     },
-    "样本准备": {
-      "__operation__": "create:",
-      "样本清单": {
-        "__operation__": "create:",
-        "__content__": ""
-      },
-      "处理记录": {
-        "__operation__": "create:",
-        "__content__": ""
-      }
+    {
+      "operation": "rename",
+      "from": "course_work/hw/img/pic1.png",
+      "to": "course_work/hw/img/图片1.png"
     },
-    "项目进度表.xlsx": {
-      "__operation__": null,
-      "__content__": ""
+    {
+      "operation": "rename",
+      "from": "course_work/hw/img/screenshot.jpg",
+      "to": "course_work/hw/img/截图.jpg"
     },
-    "预实验记录.txt": {
-      "__operation__": null,
-      "__content__": ""
+    {
+      "operation": "rename",
+      "from": "course_work/hw/img",
+      "to": "course_work/hw/图片"
+    },
+    {
+      "operation": "rename",
+      "from": "course_work/hw",
+      "to": "course_work/作业"
     }
-  }
+  ],
+  "reason": "将文件夹和文件名转换为中文，以便于理解和查找，同时保留最外层的readme文件不变"
 }

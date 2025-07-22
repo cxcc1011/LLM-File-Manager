@@ -1,15 +1,29 @@
 {
-  "大学计算机期末考试": {
-    "课堂笔记": {},
-    "作业": {},
-    "模拟试题": {},
-    "学习资料": {
-      "书籍": {},
-      "在线资源": {}
+  "processList": [
+    {
+      "operation": "rename",
+      "from": "course_work/hw/doc1.docx",
+      "to": "course_work/hw/作业1_初稿.docx"
     },
-    "项目": {
-      "源代码": {},
-      "文档": {}
+    {
+      "operation": "rename",
+      "from": "course_work/hw/doc2.docx",
+      "to": "course_work/hw/作业1_终稿.docx"
+    },
+    {
+      "operation": "rename",
+      "from": "course_work/hw/img/pic1.png",
+      "to": "course_work/hw/img/图表1.png"
+    },
+    {
+      "operation": "rename",
+      "from": "course_work/hw/img",
+      "to": "course_work/hw/images"
+    },
+    {
+      "operation": "rename",
+      "from": "course_work/hw",
+      "to": "course_work/homework"
     }
-  }
+  ]
 }

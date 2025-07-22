@@ -1,31 +1,41 @@
 ﻿{
   "course_work": {
-    "__operation__": null,
     "homework": {
-      "__operation__": "rename:course_work/hw",
-      "作业1_初稿.docx": {
-        "__operation__": "rename:course_work/hw/doc1.docx",
-        "__content__": ""
-      },
-      "作业1_终稿.docx": {
-        "__operation__": "rename:course_work/hw/doc2.docx",
-        "__content__": ""
-      },
       "images": {
-        "__operation__": "rename:course_work/hw/img",
-        "图表1.png": {
-          "__operation__": "rename:course_work/hw/img/pic1.png",
-          "__content__": ""
-        },
-        "screenshot.jpg": {
-          "__operation__": null,
-          "__content__": ""
-        }
-      }
+        "screenshot.jpg": "",
+        "图表1.png": ""
+      },
+      "作业1_初稿.docx": "",
+      "作业1_终稿.docx": ""
     },
-    "readme.md": {
-      "__operation__": null,
-      "__content__": ""
+    "readme.md": ""
+  },
+  "processList": [
+    {
+      "operation": "rename",
+      "from": "course_work/hw/doc1.docx",
+      "to": "course_work/hw/作业1_初稿.docx"
+    },
+    {
+      "operation": "rename",
+      "from": "course_work/hw/doc2.docx",
+      "to": "course_work/hw/作业1_终稿.docx"
+    },
+    {
+      "operation": "rename",
+      "from": "course_work/hw/img/pic1.png",
+      "to": "course_work/hw/img/图表1.png"
+    },
+    {
+      "operation": "rename",
+      "from": "course_work/hw/img",
+      "to": "course_work/hw/images"
+    },
+    {
+      "operation": "rename",
+      "from": "course_work/hw",
+      "to": "course_work/homework"
     }
-  }
+  ],
+  "reason": "将零散命名的文件按规范重命名，方便后续查阅和提交"
 }

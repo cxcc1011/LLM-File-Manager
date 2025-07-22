@@ -1,11 +1,13 @@
 {
-  "癌细胞研究": {
-    "文献调研": {
-      "关键文献笔记.pdf": "",
-      "文献引用格式.xlsx": "",
-      "文献综述.docx": ""
+  "course_work": {
+    "hw": {
+      "doc1.docx": "",
+      "doc2.docx": "",
+      "img": {
+        "pic1.png": "",
+        "screenshot.jpg": ""
+      }
     },
-    "项目进度表.xlsx": "",
-    "预实验记录.txt": ""
+    "readme.md": ""
   }
 }

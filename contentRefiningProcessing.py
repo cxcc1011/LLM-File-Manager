@@ -140,6 +140,49 @@ def execute_operations(json_path):
         print(f"执行操作时出错: {e}")
     return True
 
+def execute_operations_new(json_path):
+    try:
+        # 读取JSON文件
+        with open(json_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+
+        # 获取操作列表，如果不存在则设为空列表
+        process_list = data.get('operationList', [])
+
+        # 遍历所有操作并按顺序执行
+        for operation in process_list:
+            op_type = operation.get('operation')
+
+            # 处理创建操作
+            if op_type == 'create':
+                path = operation.get('to')  # create操作from值为空，只有to属性
+                if path:
+                    basicFunction.create_dir(path)
+
+            # 处理移动操作
+            elif op_type == 'move':
+                from_path = operation.get('from')
+                to_path = operation.get('to')
+                if from_path and to_path:
+                    # 判断是否为文件
+                    if fileUtils.is_file(from_path) or fileUtils.is_file(to_path):
+                        basicFunction.move_file(from_path, to_path)
+                    else:
+                        basicFunction.move_dir(from_path, to_path)
+
+            # 处理重命名操作
+            elif op_type == 'rename':
+                from_path = operation.get('from')
+                to_path = operation.get('to')
+                if from_path and to_path:
+                    basicFunction.rename(from_path, to_path)
+
+        print("所有操作执行完毕")
+
+    except Exception as e:
+        print(f"执行操作时出错: {e}")
+    return True
+
 def transfer_result_json(path):
     try:
         with open(path, 'r', encoding='utf-8-sig') as f:
@@ -190,7 +233,8 @@ if __name__=="__main__":
     # generate_operations_from_json(json_path_result)
 
     # 执行操作序列
-    execute_operations(json_path_operations)
+    # execute_operations(json_path_operations)
+    execute_operations_new(json_path_result)
 
     # 查看变更结果
     # fileUtils.display_directory_tree(base_dir + "//年度总结")
