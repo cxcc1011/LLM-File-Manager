@@ -1,36 +1,65 @@
 {
-  "摄影": {
+  "癌细胞研究": {
     "__operation__": null,
-    "小狗.jpg": {
+    "文献调研": {
       "__operation__": null,
-      "__content__": ""
-    },
-    "小猫.jpg": {
-      "__operation__": null,
-      "__content__": ""
-    },
-    "小马.jpg": {
-      "__operation__": null,
-      "__content__": ""
-    },
-    "待删除": {
-      "__operation__": "create:",
-      "小狗.png": {
-        "__operation__": "move:摄影/小狗.png",
+      "关键文献笔记.pdf": {
+        "__operation__": null,
         "__content__": ""
       },
-      "小猫.psf": {
-        "__operation__": "move:摄影/小猫.psf",
+      "文献引用格式.xlsx": {
+        "__operation__": null,
         "__content__": ""
       },
-      "小马.png": {
-        "__operation__": "move:摄影/小马.png",
-        "__content__": ""
-      },
-      "小马.psf": {
-        "__operation__": "move:摄影/小马.psf",
+      "文献综述.docx": {
+        "__operation__": null,
         "__content__": ""
       }
+    },
+    "实验方案设计": {
+      "__operation__": "create:",
+      "方案草稿": {
+        "__operation__": "create:",
+        "__content__": ""
+      },
+      "设备清单": {
+        "__operation__": "create:",
+        "__content__": ""
+      },
+      "时间安排": {
+        "__operation__": "create:",
+        "__content__": ""
+      }
+    },
+    "设备调试": {
+      "__operation__": "create:",
+      "调试记录": {
+        "__operation__": "create:",
+        "__content__": ""
+      },
+      "问题与解决": {
+        "__operation__": "create:",
+        "__content__": ""
+      }
+    },
+    "样本准备": {
+      "__operation__": "create:",
+      "样本清单": {
+        "__operation__": "create:",
+        "__content__": ""
+      },
+      "处理记录": {
+        "__operation__": "create:",
+        "__content__": ""
+      }
+    },
+    "项目进度表.xlsx": {
+      "__operation__": null,
+      "__content__": ""
+    },
+    "预实验记录.txt": {
+      "__operation__": null,
+      "__content__": ""
     }
   }
 }

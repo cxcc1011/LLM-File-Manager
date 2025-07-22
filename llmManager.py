@@ -35,9 +35,13 @@ def creating_mode_invoke(user_input):
     system_prompt = """
     You are a professional file system organizer.
     
-    The user will provide some description of their new project. Please parse the description and create project's structure and output them in JSON format. 
+    The user will provide some description of their new project. 
+    Please parse the description and create project's structure and output them in JSON format. 
+    Attach a brief, reasonable explanation of the output content.
     
-    NOTE: JSON standard allows only double quoted string.
+    NOTE: 
+    1.JSON standard allows only double quoted string.
+    2.Use chinese as the output's default language.
 
     EXAMPLE INPUT: 
     I want to start a data-science research. It includes codes, data, and result analyzing.
@@ -62,7 +66,8 @@ def creating_mode_invoke(user_input):
                 "tables": {}
             },
             "tests": {}
-        }
+        },
+        "reason" : "this project include folders like docs,data,src,results,tests, which is very convenient for data researchers"
     }
     """
     user_prompt = user_input
@@ -80,6 +85,10 @@ def creating_mode_invoke(user_input):
 
     # 解析响应并保存到文件
     result = json.loads(response.choices[0].message.content)
+
+    reason = result.pop("reason", None)
+    print(result)
+    print(reason)
 
     fileUtils.save_content(result, json_path)
 
@@ -105,6 +114,10 @@ def creating_mode_iterate(user_input,messages):
 
     # 解析响应并保存到文件
     result = json.loads(response.choices[0].message.content)
+
+    reason = result.pop("reason", None)
+    print(result)
+    print(reason)
 
     fileUtils.save_content(result, json_path)
 
@@ -378,27 +391,30 @@ def organizing_mode_iterate(user_input,messages):
     return messages
 
 if __name__ == '__main__':
+
     # invoke_test()
     # check()
-    # description = input("请输入描述").strip()
-    # messages = creating_mode_invoke(description)
-    # description = input("请输入改进需求").strip()
-    # messages = creating_mode_iterate(description, messages)
-    # print(messages)
-    try:
-        with open(json_path_old, 'r', encoding='utf-8-sig') as f:
-            json_content = json.load(f)
-            print(json_content)
-    except FileNotFoundError:
-        print("Error: JSON file not found.")
-
     description = input("请输入描述").strip()
-    formatted_json = json.dumps(json_content, ensure_ascii=False, indent=2)
-    full_description = f"user description: {description}\ndirectory structure:\n{formatted_json}"
-    # print(full_description)
+    messages = creating_mode_invoke(description)
+    description = input("请输入改进需求").strip()
+    messages = creating_mode_iterate(description, messages)
+    # print(messages)
 
-    messages = organizing_mode_invoke(full_description)
-    # print(messages)
-    description = "改进需求：" + input("请输入改进需求").strip()
-    messages = organizing_mode_iterate(description, messages)
-    # print(messages)
+    ''' 文件内容优化测试'''
+    # try:
+    #     with open(json_path_old, 'r', encoding='utf-8-sig') as f:
+    #         json_content = json.load(f)
+    #         print(json_content)
+    # except FileNotFoundError:
+    #     print("Error: JSON file not found.")
+    #
+    # description = input("请输入描述").strip()
+    # formatted_json = json.dumps(json_content, ensure_ascii=False, indent=2)
+    # full_description = f"user description: {description}\ndirectory structure:\n{formatted_json}"
+    # # print(full_description)
+    #
+    # messages = organizing_mode_invoke(full_description)
+    # # print(messages)
+    # description = "改进需求：" + input("请输入改进需求").strip()
+    # messages = organizing_mode_iterate(description, messages)
+    # # print(messages)
