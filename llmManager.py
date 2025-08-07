@@ -3,12 +3,10 @@ from openai import OpenAI
 
 import fileUtils
 
-api_key = 'sk-2e114b19f0694b739d81363ba728d596'
+api_key = 'your-api-key'
 json_path_old = 'fileStructure1.json'
 json_path = 'fileStructure2.json'
 json_path_result = 'fileStructureResult.json'
-
-# Please install OpenAI SDK first: `pip3 install openai`
 
 def check():
     # for backward compatibility, you can still use `https://api.deepseek.com/v1` as `base_url`.
