@@ -1,13 +1,23 @@
 {
-  "course_work": {
-    "hw": {
-      "doc1.docx": "",
-      "doc2.docx": "",
-      "img": {
-        "pic1.png": "",
-        "screenshot.jpg": ""
+  "pytorch-fid-master": {
+    "pytorch-fid-master": {
+      "CHANGELOG.md": "",
+      "LICENSE": "",
+      "README.md": "",
+      "noxfile.py": "",
+      "pyproject.toml": "",
+      "setup.py": "",
+      "src": {
+        "pytorch_fid": {
+          "__init__.py": "",
+          "__main__.py": "",
+          "fid_score.py": "",
+          "inception.py": ""
+        }
+      },
+      "tests": {
+        "test_fid_score.py": ""
       }
-    },
-    "readme.md": ""
+    }
   }
 }

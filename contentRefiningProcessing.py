@@ -218,7 +218,25 @@ def transfer_result_json(path):
         old_json[root_name] = process_directory(root_content)
 
     return old_json
+def transfer_result_json_new(json_path):
+    try:
+        # 读取JSON文件
+        with open(json_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        # 获取第一个键
+        first_key = next(iter(data.keys()))
 
+        # 只保留第一个键值对
+        filtered_data = {first_key: data[first_key]}
+
+        return filtered_data
+
+        # # 写回JSON文件
+        # with open(json_path_new, 'w', encoding='utf-8') as f:
+        #     json.dump(filtered_data, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print(f"执行操作时出错: {e}")
+    return True
 if __name__=="__main__":
     # 内容优化功能测试用例
 
@@ -226,15 +244,15 @@ if __name__=="__main__":
     # fileUtils.display_directory_tree(base_dir + "//年度总结")
 
     # # 新变化的json结构
-    # fileUtils.save_content(transfer_result_json(json_path_result), json_path_new)
-    # fileUtils.display_json_tree(json_path_new)
+    fileUtils.save_content(transfer_result_json_new(json_path_result), json_path_new)
+    fileUtils.display_json_tree(json_path_new)
 
     # 生成操作序列
     # generate_operations_from_json(json_path_result)
 
     # 执行操作序列
     # execute_operations(json_path_operations)
-    execute_operations_new(json_path_result)
+    # execute_operations_new(json_path_result)
 
     # 查看变更结果
     # fileUtils.display_directory_tree(base_dir + "//年度总结")

@@ -1,41 +1,11 @@
 {
-  "course_work": {
-    "homework": {
-      "images": {
-        "screenshot.jpg": "",
-        "图表1.png": ""
-      },
-      "作业1_初稿.docx": "",
-      "作业1_终稿.docx": ""
-    },
-    "readme.md": ""
-  },
-  "processList": [
+  "meta_data": [
     {
-      "operation": "rename",
-      "from": "course_work/hw/doc1.docx",
-      "to": "course_work/hw/作业1_初稿.docx"
-    },
-    {
-      "operation": "rename",
-      "from": "course_work/hw/doc2.docx",
-      "to": "course_work/hw/作业1_终稿.docx"
-    },
-    {
-      "operation": "rename",
-      "from": "course_work/hw/img/pic1.png",
-      "to": "course_work/hw/img/图表1.png"
-    },
-    {
-      "operation": "rename",
-      "from": "course_work/hw/img",
-      "to": "course_work/hw/images"
-    },
-    {
-      "operation": "rename",
-      "from": "course_work/hw",
-      "to": "course_work/homework"
+      "path": "元数据/作业3.docx",
+      "type": ".docx",
+      "size": "294.67 KB",
+      "created": "2025-08-02 10:14:09",
+      "last_modified": "2025-08-02 10:19:18"
     }
-  ],
-  "reason": "将零散命名的文件按规范重命名，方便后续查阅和提交"
+  ]
 }

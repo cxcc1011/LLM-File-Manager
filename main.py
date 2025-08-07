@@ -98,9 +98,10 @@ def main():
             if flag_new_completion:
                 print("Please choose your root path:\n")
                 root_name = input("Enter root path: ").strip()
-                root_path = base_dir + "//" + root_name
-                fileUtils.save_content(fileUtils.read_directory(root_path), json_path_old)
+                # root_path = base_dir + "//" + root_name
+                fileUtils.save_content(fileUtils.read_metadata(root_name), json_path_old)
 
+                """输出现有架构"""
                 print("-" * 30)
                 print("Your project's structure is as following:")
                 fileUtils.display_json_tree(json_path_old)
@@ -108,6 +109,8 @@ def main():
 
                 print("Please describe your improvement opinions:\n")
                 description = input("Enter your description: ").strip()
+
+                """读取并解析现有文件"""
                 try:
                     with open(json_path_old, 'r', encoding='utf-8-sig') as f:
                         json_content = json.load(f)
@@ -115,22 +118,32 @@ def main():
                 except FileNotFoundError:
                     print("Error: JSON file not found.")
 
-                formatted_json = json.dumps(json_content, ensure_ascii=False, indent=2)
-                full_description = f"user description: {description}\ndirectory structure:\n{formatted_json}"
+                root_keys = list(json_content.keys())
+                if len(root_keys) != 2:
+                    raise ValueError("原始JSON必须包含且仅包含两个根级键")
+                # 动态获取两个根键
+                key1, key2 = root_keys
 
+                # 分别创建两个新的字典
+                data1 = {key1: json_content[key1]}
+                data2 = {key2: json_content[key2]}
+
+                full_description = f"user description: {description}\ndirectory input:\n{data1}\nmetadata input:\n{data2}"
+
+                """调用LLM"""
                 print("-" * 30)
                 print("Your project is under modification...")
-                messages = llmManager.organizing_mode_invoke(full_description)
+                messages = llmManager.organizing_mode_invoke_new(full_description)
                 flag_new_completion = False
                 print("-" * 30)
                 print("Refined project's structure is as follow:\n")
-                fileUtils.save_content(contentRefiningProcessing.transfer_result_json(json_path_result), json_path)
+                fileUtils.save_content(contentRefiningProcessing.transfer_result_json_new(json_path_result), json_path)
                 fileUtils.display_json_tree(json_path)
 
                 if_completion = get_yes_no("\nWould you like to take the advice? (yes/no): ")
                 if if_completion:
-                    contentRefiningProcessing.generate_operations_from_json(json_path_result)
-                    contentRefiningProcessing.execute_operations(json_path_operations)
+                    # contentRefiningProcessing.generate_operations_from_json(json_path_result)
+                    contentRefiningProcessing.execute_operations_new(json_path_result)
                     print("Advised operations have been executed. ")
                     break  # Exit the main loop
             else:
@@ -142,13 +155,13 @@ def main():
                 messages = llmManager.organizing_mode_iterate(description, messages)
                 print("-" * 30)
                 print("Refined project's structure is as follow:\n")
-                fileUtils.save_content(contentRefiningProcessing.transfer_result_json(json_path_result), json_path)
+                fileUtils.save_content(contentRefiningProcessing.transfer_result_json_new(json_path_result), json_path)
                 fileUtils.display_json_tree(json_path)
 
                 if_completion = get_yes_no("\nWould you like to take the advice? (yes/no): ")
                 if if_completion:
-                    contentRefiningProcessing.generate_operations_from_json(json_path_result)
-                    contentRefiningProcessing.execute_operations(json_path_operations)
+                    # contentRefiningProcessing.generate_operations_from_json(json_path_result)
+                    contentRefiningProcessing.execute_operations_new(json_path_result)
                     print("Advised operations have been executed. ")
                     break  # Exit the main loop
         exit()

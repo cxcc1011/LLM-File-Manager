@@ -1,0 +1,9 @@
+﻿python-docx
+pywin32
+openai
+json
+pandas
+openpyxl
+xlrd==2.0.1
+python-pptx
+pymupdf

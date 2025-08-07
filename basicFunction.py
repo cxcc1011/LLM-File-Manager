@@ -7,7 +7,7 @@ from pathlib import Path
 from datetime import datetime
 
 # 主要变更操作的根目录
-base_dir = os.path.dirname(os.path.abspath(__file__)) + "//base_dir"
+base_dir = os.path.dirname(os.path.abspath(__file__)) + "\\base_dir"
 
 # 当前选取的根目录
 json_file_old = 'fileStructure2.json'
@@ -175,46 +175,75 @@ def move_file(from_path, to_path):
         print(f"移动文件失败: {e}")
         return False
 
+
 def get_file_mata(path):
     try:
-        path = os.path.join(base_dir, path)
+        full_path = os.path.join(base_dir, path)
 
-        if not os.path.exists(path):
-            print(f"错误: 文件 '{path}' 不存在")
-            return False
+        if not os.path.exists(full_path):
+            print(f"错误: 路径 '{full_path}' 不存在")
+            return None
 
-        meta_info = os.stat(path)
+        meta_info = os.stat(full_path)
+        metadata = {}
+        metadata["path"] = path
 
-        # 文件类型
-        file_type = Path(path).suffix.lower()
+        # 判断是文件还是文件夹
+        if os.path.isfile(full_path):
+            # metadata["type"] = "file"
+            # 文件扩展名
+            metadata["type"] = Path(full_path).suffix.lower()
+        elif os.path.isdir(full_path):
+            metadata["type"] = "directory"
+            # metadata["extension"] = ""
 
-        # 文件大小
+            # # 统计文件夹中的文件和子文件夹数量
+            # file_count = 0
+            # dir_count = 0
+            # for _, dirs, files in os.walk(full_path):
+            #     file_count += len(files)
+            #     dir_count += len(dirs)
+            # metadata["file_count"] = file_count
+            # metadata["subdir_count"] = dir_count
+        else:
+            metadata["type"] = "unknown"
+            # metadata["extension"] = ""
+
+        # 大小信息
         size_bytes = meta_info.st_size
         units = ['B', 'KB', 'MB', 'GB', 'TB']
         unit_index = 0
         while size_bytes >= 1024 and unit_index < len(units) - 1:
             size_bytes /= 1024
             unit_index += 1
-        file_size = f"{size_bytes:.2f} {units[unit_index]}"
+        metadata["size"] = f"{size_bytes:.2f} {units[unit_index]}"
 
-        # 文件最后编辑时间
-        last_modified = datetime.fromtimestamp(meta_info.st_mtime).strftime("%Y-%m-%d %H:%M:%S")
+        # 时间信息
+        metadata["last_modified"] = datetime.fromtimestamp(meta_info.st_mtime).strftime("%Y-%m-%d %H:%M:%S")
+        metadata["created"] = datetime.fromtimestamp(meta_info.st_ctime).strftime("%Y-%m-%d %H:%M:%S")
 
-        meta_data = {
-            "type": file_type,
-            "size": file_size,
-            "last_modified":last_modified
-        }
+        # 打印元数据
+        # print(f"元数据：")
+        # print(f"路径：{metadata['path']}")
+        # print(f"类型：{metadata['type']}")
+        # if metadata["type"] == "file" and metadata["extension"]:
+        #     print(f"扩展名：{metadata['extension']}")
+        # elif metadata["type"] == "directory":
+        #     print(f"包含文件数：{metadata['file_count']}")
+        #     print(f"包含子文件夹数：{metadata['subdir_count']}")
+        # print(f"大小：{metadata['size']}")
+        # print(f"创建时间：{metadata['created']}")
+        # print(f"最后修改时间：{metadata['last_modified']}\n")
 
-        print(f"文件元数据：\n类型：{meta_data['type']}\n大小：{meta_data['size']}\n最后编辑时间：{meta_data['last_modified']}")
+        return metadata
 
     except Exception as e:
         print(f"读取失败：{e}")
-        sys.exit(1)
+        return None
 
 if __name__=="__main__":
     # 文件夹功能测试用例
-    dir_name = ""
+    dir_name = "元数据"
     # dir_name_new = "test_dir1\\child_dir2"
     # new_path = "test_dir2\\child_dir"
     # rename(dir_name_new, dir_name)
@@ -230,6 +259,6 @@ if __name__=="__main__":
     # 文件功能测试用例
     # file_name = "test_dir1\\test.txt"
     # file_name_new = "test_dir2\\test"
-    rename("年度总结/技术部/文档/工作总结.docx", "年度总结/技术部/文档/技术部工作总结.docx")
+    # rename("年度总结/技术部/文档/工作总结.docx", "年度总结/技术部/文档/技术部工作总结.docx")
     # move_file(file_name, file_name_new)
-    # get_file_mata(file_name)
+    # get_file_mata(dir_name)

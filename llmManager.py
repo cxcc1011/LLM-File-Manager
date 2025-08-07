@@ -400,6 +400,17 @@ def organizing_mode_invoke_new(user_input):
       }
     }Among them, {} represents a folder, and "" represents a file.
     
+    The input metadata‘s schema(nullable)：
+    "meta_data": [
+        {
+          "path": "元数据\\readme.md",
+          "type": ".md",
+          "size": "0.00 B",
+          "last_modified": "2025-07-19 18:23:34",
+          "created": "2025-08-02 10:11:35"
+        }
+    ]
+    
     The output‘s schema ：
     {
       "base_dir": {
@@ -431,7 +442,7 @@ def organizing_mode_invoke_new(user_input):
           "to": "base_dir1/test_dir3/test.txt"
         },
       ],
-      "reason":""
+      "reason":"这是对变更操作的解释"
     }Among them:
      1.Final folder structure.
      2.operationList represents a sequence of operations that can be executed in order,include rename,create and move.
@@ -530,8 +541,6 @@ def organizing_mode_invoke_new(user_input):
 
     return messages
 
-
-
 def organizing_mode_iterate(user_input,messages):
 
     client = OpenAI(api_key=api_key, base_url="https://api.deepseek.com")
@@ -580,10 +589,18 @@ if __name__ == '__main__':
         print("Error: JSON file not found.")
     #
     description = input("请输入描述").strip()
-    formatted_json = json.dumps(json_content, ensure_ascii=False, indent=2)
-    full_description = f"user description: {description}\ndirectory structure:\n{formatted_json}"
-    # # print(full_description)
-    #
+    # formatted_json = json.dumps(json_content, ensure_ascii=False, indent=2)
+    root_keys = list(json_content.keys())
+    if len(root_keys) != 2:
+        raise ValueError("原始JSON必须包含且仅包含两个根级键")
+    # 动态获取两个根键
+    key1, key2 = root_keys
+
+    # 分别创建两个新的字典
+    data1 = {key1: json_content[key1]}
+    data2 = {key2: json_content[key2]}
+
+    full_description = f"user description: {description}\ndirectory input:\n{data1}\nmetadata input:\n{data2}"
     # messages = organizing_mode_invoke(full_description)
     # # print(messages)
     # description = "改进需求：" + input("请输入改进需求").strip()

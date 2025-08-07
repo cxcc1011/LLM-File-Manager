@@ -1,29 +1,18 @@
 {
-  "processList": [
-    {
-      "operation": "rename",
-      "from": "course_work/hw/doc1.docx",
-      "to": "course_work/hw/作业1_初稿.docx"
+  "元数据": {
+    "0-10KB": {
+      "readme.md": "",
+      "作业1.docx": "",
+      "数据统计.xlsx": "",
+      "数据统计2.xlsx": ""
     },
-    {
-      "operation": "rename",
-      "from": "course_work/hw/doc2.docx",
-      "to": "course_work/hw/作业1_终稿.docx"
+    "10-100KB": {
+      "作业2.docx": "",
+      "作业4.docx": ""
     },
-    {
-      "operation": "rename",
-      "from": "course_work/hw/img/pic1.png",
-      "to": "course_work/hw/img/图表1.png"
-    },
-    {
-      "operation": "rename",
-      "from": "course_work/hw/img",
-      "to": "course_work/hw/images"
-    },
-    {
-      "operation": "rename",
-      "from": "course_work/hw",
-      "to": "course_work/homework"
+    "100KB以上": {
+      "作业3.docx": "",
+      "作业5.docx": ""
     }
-  ]
+  }
 }

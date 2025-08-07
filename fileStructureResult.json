@@ -1,46 +1,75 @@
 {
-  "course_work": {
-    "作业": {
+  "元数据": {
+    "0-10KB": {
+      "readme.md": "",
       "作业1.docx": "",
-      "作业2.docx": "",
-      "图片": {
-        "图片1.png": "",
-        "截图.jpg": ""
-      }
+      "数据统计.xlsx": "",
+      "数据统计2.xlsx": ""
     },
-    "readme.md": ""
+    "10-100KB": {
+      "作业2.docx": "",
+      "作业4.docx": ""
+    },
+    "100KB以上": {
+      "作业3.docx": "",
+      "作业5.docx": ""
+    }
   },
   "operationList": [
     {
-      "operation": "rename",
-      "from": "course_work/hw/doc1.docx",
-      "to": "course_work/hw/作业1.docx"
+      "operation": "create",
+      "from": "",
+      "to": "元数据/0-10KB"
     },
     {
-      "operation": "rename",
-      "from": "course_work/hw/doc2.docx",
-      "to": "course_work/hw/作业2.docx"
+      "operation": "move",
+      "from": "元数据/readme.md",
+      "to": "元数据/0-10KB/readme.md"
     },
     {
-      "operation": "rename",
-      "from": "course_work/hw/img/pic1.png",
-      "to": "course_work/hw/img/图片1.png"
+      "operation": "move",
+      "from": "元数据/作业1.docx",
+      "to": "元数据/0-10KB/作业1.docx"
     },
     {
-      "operation": "rename",
-      "from": "course_work/hw/img/screenshot.jpg",
-      "to": "course_work/hw/img/截图.jpg"
+      "operation": "move",
+      "from": "元数据/数据统计.xlsx",
+      "to": "元数据/0-10KB/数据统计.xlsx"
     },
     {
-      "operation": "rename",
-      "from": "course_work/hw/img",
-      "to": "course_work/hw/图片"
+      "operation": "move",
+      "from": "元数据/数据统计2.xlsx",
+      "to": "元数据/0-10KB/数据统计2.xlsx"
     },
     {
-      "operation": "rename",
-      "from": "course_work/hw",
-      "to": "course_work/作业"
+      "operation": "create",
+      "from": "",
+      "to": "元数据/10-100KB"
+    },
+    {
+      "operation": "move",
+      "from": "元数据/作业2.docx",
+      "to": "元数据/10-100KB/作业2.docx"
+    },
+    {
+      "operation": "move",
+      "from": "元数据/作业4.docx",
+      "to": "元数据/10-100KB/作业4.docx"
+    },
+    {
+      "operation": "create",
+      "from": "",
+      "to": "元数据/100KB以上"
+    },
+    {
+      "operation": "move",
+      "from": "元数据/作业3.docx",
+      "to": "元数据/100KB以上/作业3.docx"
+    },
+    {
+      "operation": "move",
+      "from": "元数据/作业5.docx",
+      "to": "元数据/100KB以上/作业5.docx"
     }
-  ],
-  "reason": "将文件夹和文件名转换为中文，以便于理解和查找，同时保留最外层的readme文件不变"
+  ]
 }
